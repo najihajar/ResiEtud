@@ -1,0 +1,487 @@
+/* les liens de menu */
+.navbar-nav .nav-link {
+    color: #0000FF; 
+    transition: color 0.3s ease, text-decoration 0.3s ease; 
+    text-decoration: none; 
+}
+
+.navbar-nav .nav-link:hover {
+    color: #0000CD; 
+}
+
+.navbar-nav .nav-link.active {
+    color: #0000CD; 
+    text-decoration: underline; 
+}
+
+.navbar-nav .nav-link:active {
+    text-decoration: underline; 
+}
+
+
+/* Accueil Styles globaux */
+.container-custom {
+    font-family: 'cursive';
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    text-align: center;
+    margin-top: -130px;
+}
+
+.text-section {
+    flex: 1;
+    padding: 30px;
+    color: black;
+}
+
+.text-section h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.text-section h4 {
+    font-size: 2.5rem;
+    margin-top: 30px;
+}
+
+
+.image-section {
+    flex: 1;
+    text-align: center;
+}
+
+.image-section img {
+    width: 90%;
+    
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-section img:hover {
+    transform: scale(1.05);
+}
+
+/* Annonces */
+.annonces {
+    padding: 30px;
+    background-color: #f8f9fa;
+    margin-top: 90px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+
+}
+
+.annonces h3 {
+    color: #007bff;
+    font-size: 2rem;
+}
+
+.annonces ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+.annonces li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.annonces li:hover {
+    background-color: #e9ecef;
+}
+
+
+
+/* Page présentation  */
+.full-page-container {
+    position: relative;
+    min-height: 20vh; 
+    background-image: url("../images/pre2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+  .overlay-text h2, .overlay-text h4 {
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 10px 0;
+}
+
+.overlay-text h2 {
+    font-size: 2.5rem;
+}
+
+.overlay-text h4 {
+    font-size: 2rem;
+}
+
+
+
+.content-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 20px;
+    
+}
+
+.text-content {
+flex: 1;
+padding-right: 40px;
+margin-left: 50px; 
+}
+
+.text-content h3 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.text-content h3::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #d63384;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+.text-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #000;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+    font-size: 1.60rem;
+}
+
+.text-content p strong {
+    color: #000;
+    font-weight: bold;
+}
+
+
+
+.about-text {
+    font-size: 2.25rem; 
+    line-height: 1.8; 
+    font-family: 'Roboto', sans-serif; 
+    color: #000; 
+    text-align: justify; 
+    margin-bottom: 20px; 
+}
+
+.about-text strong {
+    font-weight: bold; 
+    color: #000; 
+}
+
+
+.image-content {
+    flex: 1;
+    text-align: right;
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-content img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-section {
+    padding: 60px 20px;
+    background-color: #e0ecff;
+    margin-top: -20px;
+    width: 90%;
+    max-width: 1200px; 
+    border-radius: 10px;
+    margin: auto; 
+    text-align: center;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 20px;
+    width: 100%;
+}
+
+
+.gallery-section h3 {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+
+/* Animation des cartes */
+.gallery-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    cursor: pointer; 
+}
+
+.gallery-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+
+.gallery-card img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.gallery-card .caption {
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.gallery-card .caption h4 {
+    font-size: 1.2rem;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.gallery-card .caption p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Styles globaux */
+    .container-custom {
+        font-family: 'cursive';
+        background-color: #fff;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+        text-align: center;
+        margin-top: -130px;
+    }
+
+    /* Texte */
+    .text-section {
+        flex: 1;
+        padding: 30px;
+        color: black;
+    }
+
+    .text-section h2 {
+        font-size: 3.5rem;
+        font-weight: bold;
+    }
+
+    .text-section h4 {
+        font-size: 2.5rem;
+        margin-top: 30px;
+    }
+
+    
+    .image-section {
+        flex: 1;
+        text-align: center;
+    }
+
+    .image-section img {
+        width: 90%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-section img:hover {
+        transform: scale(1.05);
+    }
+
+    /* Annonces */
+    .annonces {
+        padding: 30px;
+        background-color: #f8f9fa;
+        margin-top: -130px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+
+    }
+
+    .annonces h3 {
+        color: #007bff;
+        font-size: 2rem;
+    }
+
+    .annonces ul {
+        list-style: none;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+
+    .annonces li {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .annonces li:hover {
+        background-color: #e9ecef;
+    }
+
+/* page Clubs  */
+
+
+    .clubs-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 40px;
+    }
+
+    .club {
+        margin-bottom: 60px;
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .club-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .club-logo {
+        width: 80px;
+        height: 80px;
+        margin-right: 20px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .club h2 {
+        color: #444;
+        margin: 0;
+    }
+
+    .club-description {
+        color: #000;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .club-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 images par ligne */
+        gap: 10px; /* Espace entre les images */
+        margin-bottom: 20px; /* Espace entre les lignes */
+    }
+
+    .club-gallery img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+    }
+
+    .club-gallery img:hover {
+        transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+        .club-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .club-logo {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+
+        .club-gallery {
+            grid-template-columns: repeat(2, 1fr); /* 2 images par ligne sur mobile */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .club-gallery {
+            grid-template-columns: 1fr; /* 1 image par ligne sur très petits écrans */
+        }
+    }
+
+
+
+/* page contact */
+h1 {
+    color: #007bff;
+
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
