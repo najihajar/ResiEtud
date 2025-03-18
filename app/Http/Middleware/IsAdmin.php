@@ -4,16 +4,23 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
+     */
     public function handle(Request $request, Closure $next)
     {
-        // Vérifier si l'utilisateur est connecté et si son rôle est 'admin'
-        if (auth()->user() && auth()->user()->role !== 'admin') {
-            return redirect('/');  // Redirige si l'utilisateur n'est pas admin
+        if (Auth::check() && Auth::user()->role === 'admin') {
+            return $next($request);
         }
-
-        return $next($request);
+        
+        return redirect('/'); // redirection si l'utilisateur n'est pas admin
     }
 }

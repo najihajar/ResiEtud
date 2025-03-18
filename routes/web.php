@@ -6,10 +6,11 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Middleware\IsAdmin;
+use App\Http\Middleware\AnnouncementController;
+use App\Http\Middleware\AbsenceRequestController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+
+Auth::routes(); // Routes de connexion et d'inscription
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -42,6 +43,22 @@ Route::middleware([IsAdmin::class])->group(function () {
 
     // Autres routes réservées aux administrateurs
 });
+
+// Routes protégées par le middleware admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/announcements', [AnnouncementController::class, 'index'])->name('admin.announcements.index');
+    Route::get('admin/announcements/create', [AnnouncementController::class, 'create'])->name('admin.announcements.create');
+    Route::post('admin/announcements', [AnnouncementController::class, 'store'])->name('admin.announcements.store');
+    Route::get('admin/announcements/{announcement}/edit', [AnnouncementController::class, 'edit'])->name('admin.announcements.edit');
+    Route::put('admin/announcements/{announcement}', [AnnouncementController::class, 'update'])->name('admin.announcements.update');
+    Route::delete('admin/announcements/{announcement}', [AnnouncementController::class, 'destroy'])->name('admin.announcements.destroy');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('user/absence_form', [AbsenceRequestController::class, 'create'])->name('user.absence_form');
+    Route::post('user/absence_form', [AbsenceRequestController::class, 'store']);
+});
+
 
 require __DIR__.'/auth.php';
 
@@ -86,3 +103,7 @@ Route::get('/create-admin', [AdminController::class, 'createAdmin']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

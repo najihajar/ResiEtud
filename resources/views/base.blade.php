@@ -25,5 +25,10 @@
         <!-- Nos script  -->
         @include('script')
     
+
+        @if(Auth::check() && Auth::user()->role === 'admin')
+            <a href="{{ route('admin.announcements.index') }}" class="btn btn-primary">📋 Gérer les annonces</a>
+        @endif
+
     </body>
 </html>

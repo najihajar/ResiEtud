@@ -3,39 +3,37 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
+use Illuminate\Foundation\Auth\ConfirmsPasswords;
 
 class ConfirmPasswordController extends Controller
 {
-    /**
-     * Afficher le formulaire de confirmation de mot de passe.
-     */
-    public function showConfirmForm()
-    {
-        return view('auth.confirm-password');
-    }
+    /*
+    |--------------------------------------------------------------------------
+    | Confirm Password Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for handling password confirmations and
+    | uses a simple trait to include the behavior. You're free to explore
+    | this trait and override any functions that require customization.
+    |
+    */
+
+    use ConfirmsPasswords;
 
     /**
-     * Confirmer le mot de passe de l'utilisateur.
+     * Where to redirect users when the intended url fails.
+     *
+     * @var string
      */
-    public function confirm(Request $request)
+    protected $redirectTo = '/home';
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $request->validate([
-            'password' => 'required|string',
-        ]);
-
-        // Vérifier si le mot de passe est correct
-        if (!Hash::check($request->password, $request->user()->password)) {
-            throw ValidationException::withMessages([
-                'password' => [__('The provided password does not match your current password.')],
-            ]);
-        }
-
-        // Stocker la confirmation dans la session
-        $request->session()->put('auth.password_confirmed_at', time());
-
-        return redirect()->intended();
+        $this->middleware('auth');
     }
 }

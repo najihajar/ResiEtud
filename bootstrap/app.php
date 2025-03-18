@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use App\Http\Middleware\AdminMiddleware; // Importez le middleware
+use App\Http\Middleware\AdminMiddleware; 
 
 $app = Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -17,14 +17,15 @@ $app = Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class,
         ]);
 
-        // Enregistrer le middleware avec un alias
+        // Enregistrer les middlewares spécifiques à la route avec un alias
         $middleware->alias([
-            'admin' => AdminMiddleware::class, // Alias 'admin' pour AdminMiddleware
+            'auth' => \App\Http\Middleware\Authenticate::class,
+            'admin' => \App\Http\Middleware\AdminMiddleware::class, // middleware admin que tu as défini
         ]);
     })
     ->create();
 
-// Liaison manquante pour le gestionnaire d'exceptions
+// Enregistrer le gestionnaire d'exceptions
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
     App\Exceptions\Handler::class
